@@ -1,0 +1,12 @@
+# Backend dependencies
+fastapi
+uvicorn
+pydantic
+requests
+Flask
+
+# Frontend dependencies (Bootstrap)
+Flask-Bootstrap
+
+# Optional: jQuery (if not using CDN)
+# jquery==3.6.0
