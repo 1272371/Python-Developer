@@ -1,125 +1,79 @@
 Event Scheduler Application
 
-The Event Scheduler application allows users to manage events efficiently. Follow the instructions below to set up and run the application on your local machine.
-Running the Event Scheduler App
-Clone the Repository
+The Event Scheduler application helps you efficiently manage your events. Follow these instructions to set it up on your local machine.
+About the Application
 
-Clone this GitHub repository to your local machine using the following command:
+The Event Scheduler application allows users to create, view, and delete events. Each event contains a title, description, date, and time. With a simple text-based interface, users can manage their events seamlessly.
 
-bash
+**Clone the Repository**
 
-git clone https://github.com/1272371/Python-Developer.git
+**Clone the repository to your local machine:**
+
+`bash`
+
+> git clone [Repo](https://github.com/1272371/Python-Developer.git)
 
 Navigate to the Project Directory
 
-Move into the project directory using the cd command:
+Move into the project directory:
 
-bash
+**bash**
 
-cd event_scheduler_app
+> `cd event_scheduler_app`
 
-Set Up the Virtual Environment (Optional but Recommended)
+Create and Activate the Virtual Environment
 
-It's a good practice to create a virtual environment for your project to isolate its dependencies. If you haven't set it up yet, you can do so using virtualenv. Install virtualenv if you haven't already:
+Set up a virtual environment to isolate dependencies:
 
-bash
+### Windows:
 
-pip install virtualenv
+**bash**
 
-Then, create a virtual environment in your project directory:
+> `virtualenv .venv & .venv\Scripts\activate`
 
-bash
+### macOS/Linux:
 
-virtualenv .venv
-
-Activate the virtual environment:
-
-    On Windows:
-
-bash
-
-.venv\Scripts\activate
-
-    On macOS and Linux:
-
-bash
-
-source .venv/bin/activate
+> `python -m venv .venv && source .venv/bin/activate`
 
 Install Dependencies
 
-Install the required Python dependencies listed in requirements.txt:
+Install the required Python packages:
 
-bash
+**bash**
 
-pip install -r requirements.txt
+`pip install -r requirements.txt`
 
-Run the FastAPI Application
+Run the Application
 
-Execute the FastAPI application by running the main.py file:
+**_You need to run both FastAPI and Flask:_**
 
-bash
+## FastAPI:
 
-uvicorn main:app --reload
+**bash**
 
-This command starts the FastAPI server with automatic reloading enabled, which means the server restarts automatically whenever you make changes to the code.
-Running the Flask Application
+`uvicorn main:app --reload`
 
-To run the Flask application, follow these steps:
+This starts the server with automatic reloading for code changes.
 
-    Make sure you have Python installed on your system. You can download it from python.org.
+To verify if the backend (FastAPI) is running correctly, go to http://localhost:8000/docs to view the API documentation.
 
-    Navigate to the project directory:
+## Flask:
 
-    bash
+**bash**
 
-cd event_scheduler_app
+`python app.py`
 
-Set up a virtual environment (recommended):
+Access the application at http://localhost:5000 in your web browser.
 
-bash
+Interaction
 
-python -m venv venv
+    Add events using the provided form.
+    View existing events in the sidebar.
+    Delete events by clicking their associated delete button.
+    Filter events by title using the search bar.
 
-Activate the virtual environment:
+### Updates
 
-    On Windows:
+The application is continually improved, and updates are included in the repository.
 
-bash
-
-venv\Scripts\activate
-
-    On macOS and Linux:
-
-bash
-
-source venv/bin/activate
-
-Install the required Python dependencies:
-
-bash
-
-pip install -r requirements.txt
-
-Run the Flask application by executing app.py:
-
-bash
-
-    python app.py
-
-    Access the application by opening a web browser and navigating to http://localhost:5000.
-
-    You can interact with the application by adding, viewing, and deleting events using the provided interface.
-
-Interacting with the Application
-
-    You can add events by filling out the form provided on the main page.
-    Existing events will be displayed in the sidebar.
-    You can delete events by clicking on the delete button associated with each event.
-    The search bar allows you to filter events by title.
-
-Updating the Application
-
-The application is continually being updated. Recent updates will be included in the repository.
-
-Your Event Scheduler application is now ready to run and manage your events effectively!
+Enjoy efficiently managing your events!
