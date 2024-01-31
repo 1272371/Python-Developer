@@ -41,7 +41,7 @@ Install the required Python packages:
 
 **bash**
 
-`pip install -r requirements.txt`
+> `pip install -r requirements.txt`
 
 Run the Application
 
@@ -51,7 +51,7 @@ Run the Application
 
 **bash**
 
-`uvicorn main:app --reload`
+> `uvicorn main:app --reload`
 
 This starts the server with automatic reloading for code changes.
 
@@ -61,7 +61,7 @@ To verify if the backend (FastAPI) is running correctly, go to http://localhost:
 
 **bash**
 
-`python app.py`
+> `python app.py`
 
 Access the application at http://localhost:5000 in your web browser.
 
