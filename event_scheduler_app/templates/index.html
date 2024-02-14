@@ -1,115 +1,238 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Event Scheduler</title>
+    <link href="/static/style.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
+      href="https://fonts.googleapis.com/css2?family=Mulish&display=swap"
       rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='style.css') }}"
     />
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-      <div class="container">
-        <a class="navbar-brand" href="#">
+    <main>
+      <header>
+        <a class="logo" href="#">
           <img
-            src="{{ url_for('static', filename='logo-no-background.svg') }}"
+            src="/static/logo-no-background.svg"
             alt="Event Scheduler Logo"
             width="400"
             height="200"
-            class="d-inline-block align-top mr-2"
+            class="logo-img"
           />
         </a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
+        <nav class="navigation">
+          <ul class="nav-list">
+            <li class="active">
+              <a href="#">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="icon icon-tabler icon-tabler-home"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path d="M5 12l-2 0l9 -9l9 9l-2 0" />
+                  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+                  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+                </svg>
+                Home
+              </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Contact</a>
+            <li>
+              <a href="#">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="icon icon-tabler icon-tabler-calendar-event"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <rect x="4" y="5" width="16" height="16" rx="2" />
+                  <line x1="16" y1="3" x2="16" y2="7" />
+                  <line x1="8" y1="3" x2="8" y2="7" />
+                  <line x1="4" y1="11" x2="20" y2="11" />
+                  <rect x="8" y="15" width="2" height="2" />
+                </svg>
+                Add
+              </a>
             </li>
-            <!-- Add more options as needed -->
+            <li>
+              <a href="#">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="icon icon-tabler icon-tabler-notes"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path d="M13 3h8v8m0 -8l-8 8m9 3h-8v8m8 -8l-8 8" />
+                </svg>
+                View
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="icon icon-tabler icon-tabler-user-circle"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
+                  <path d="M12 10m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+                  <path
+                    d="M6.168 18.849a4 4 0 0 1 3.832 -2.849h4a4 4 0 0 1 3.834 2.855"
+                  />
+                </svg>
+                Profile
+              </a>
+            </li>
+            <div class="active-bar"></div>
           </ul>
-        </div>
-      </div>
-    </nav>
+        </nav>
+      </header>
 
-    <div class="container-fluid mt-4">
-      <div class="row">
-        <div class="col-md-3" id="sidebar">
-          <h2>Events</h2>
-          <!-- Add search bar -->
-          <div class="input-group mb-3">
-            <input
-              type="text"
-              class="form-control"
-              placeholder="Search by title"
-              id="searchTitle"
-            />
-            <div class="input-group-append">
-              <button
-                class="btn btn-outline-secondary"
-                type="button"
-                id="searchButton"
-              >
-                Search
-              </button>
-            </div>
-          </div>
-          <ul id="eventsList" class="list-group mt-3">
-            <!-- Events will be dynamically added here -->
-          </ul>
-        </div>
-        <div class="col-md-9">
-          <h1 class="mb-4">Event Scheduler</h1>
-          <hr />
-          <form id="eventForm">
-            <div class="form-group">
-              <label for="title">Title:</label>
-              <input type="text" class="form-control" id="title" required />
-            </div>
-            <div class="form-group">
-              <label for="description">Description:</label>
-              <textarea
+      <div class="container">
+        <div class="events">
+          <div class="sidebar">
+            <!-- Add search bar -->
+            <div class="input-group">
+              <input
+                type="text"
                 class="form-control"
-                id="description"
-                required
-              ></textarea>
+                placeholder="Search by title"
+                id="searchTitle"
+              />
+              <div class="input-group-append">
+                <button class="btn" type="button" id="searchButton">
+                  Search
+                </button>
+              </div>
             </div>
-            <div class="form-group">
-              <label for="date">Date:</label>
-              <input type="date" class="form-control" id="date" required />
-            </div>
-            <div class="form-group">
-              <label for="time">Time:</label>
-              <input type="time" class="form-control" id="time" required />
-            </div>
-            <button type="submit" class="btn btn-primary">Add Event</button>
-          </form>
+            {% if events %}
+            <ul id="eventsList" class="list-group">
+              <!-- Events will be dynamically added here -->
+              {% for event in events %}
+              <li class="list-group-item">
+                {{ event.title }} - {{ event.description }} - {{ event.date }} - {{ event.time }}
+                <div class="btn-group" role="group" aria-label="Event Actions">
+                  <a href="/api/events/{{ event.title }} " class="btn btn-primary">Edit</a>
+                  <a href="/api/events/{{ event.title }}" class="btn btn-danger" id="btn-danger">Delete</a>
+                  <a href="/api/events/{{ event.title }}" class="btn btn-info">View</a>
+                </div>
+              </li>
+              {% endfor %}
+            </ul>
+            {% else %}
+            <p>No events have been added yet!</p>
+            {% endif %}
+          </div>
+
+          <div id="content">
+            <form id="eventForm" action="{{ url_for('add_event') }}" method="POST">
+              <div class="form-group">
+                <label for="title">Title:</label>
+                <input type="text" class="form-control" id="title" name="title" alue="Party Event" placeholder="Title of the event"/>
+              </div>
+              <br />
+              <div class="form-group">
+                <label for="description">Description:</label>
+                <textarea
+                  class="form-control"
+                  id="description"
+                  name="description"
+                  value="Best Event in town"
+                  placeholder="Description of the event"
+                ></textarea>
+              </div>
+              <br />
+              <div class="form-group">
+                <label for="date">Date:</label>
+                <input
+                  type="date"
+                  class="form-control"
+                  id="date"
+                  name="date"
+                  value="2024-09-26"
+                  placeholder="YYYY-MM-DD"
+                  pattern="\d{4}-\d{2}-\d{2}"
+                />
+              </div>
+              <br />
+              <div class="form-group">
+                <label for="time">Time:</label>
+                <input
+                  type="time"
+                  class="form-control"
+                  id="time"
+                  name="time"
+                  value="12:00"
+                  placeholder="HH:MM"
+                  pattern="\d{2}:\d{2}"
+                />
+              </div>
+              <br />
+              <button type="submit" class="btn">Add Event</button>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="row">
+          <div class="column">
+            <h5>App Summary</h5>
+            <p>A simple Event app for adding events and managing them.</p>
+          </div>
+          <div class="column">
+            <h5>Contact Information</h5>
+            <p>Email: mncubeharmony@mrfresh.com<br />Phone: +27 83 968 7489</p>
+          </div>
+          <div class="column">
+            <h5>Social Media</h5>
+            <p>Connect with us on social media platforms.</p>
+          </div>
+        </div>
+        <div class="cooperate-info">
+          <p>&copy; Copyright Event Scheduler. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <script src="{{ url_for('static', path='script.js' ) }}"></script>
   </body>
 </html>
+ 
